@@ -6,7 +6,7 @@
 
 ## Link
 
-- [Play](https://lindo-code.github.io/emag-yromem-my/"Play Game")
+- [Play](https://lindo-code.github.io/emag-yromem-my/ "Play Game")
 
 ## Built With
 
