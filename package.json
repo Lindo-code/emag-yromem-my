@@ -1,0 +1,28 @@
+{
+  "name": "emag-yromem-my",
+  "version": "1.0.0",
+  "description": "emag-yromem-my",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lindo-code/emag-yromem-my.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lindo-code/emag-yromem-my/issues"
+  },
+  "homepage": "https://github.com/Lindo-code/emag-yromem-my#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "jasmine": "^4.4.0",
+    "jsdom": "^20.0.0"
+  }
+}
