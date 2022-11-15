@@ -9,45 +9,95 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="result">Let's Play!</h1>
-    <h3 class="streak">Winning Streak: 0</h3>
-    <div class="cards">
-      <div class="card" item="hexagon" idNum="one">
-        <img src="images/Hexagon-PNG-Clipart.png" alt="" />
+    <div class="inline">
+      <h2 class="result"></h2>
+      <h2 class="time">0:00</h2>
+    </div>
+    <div class="inline">
+      <button class="restart"> 
+        <div class="stats">
+          <h2 class="guide">Pick A Grid-Size</h2>
+          <h2 class="btn-text"></h2>
+        </div>
+      </button>&nbsp;&nbsp;
+      <button class="replay"> 
+        <div class="replay-text">
+          <h2 class="replay-btn-txt">Flip All Matching Pairs To Win</h2>
+        </div>
+      </button>
+    </div>
+    <h2 class="winning-streak">Consecutive Matched Pairs : 0</h2>
+    <div class="middle">
+      <div class="cards show">
+        <div class="card" item="hexagon" idNum="uniqueId1">
+          <img src="images/Hexagon-PNG-Clipart.png" alt="" />
+        </div>
+        <div class="card" item="hexagon" idNum="uniqueId2">
+          <img src="images/Hexagon-PNG-Clipart.png" alt="" />
+        </div>
+        <div class="card" item="coffee" idNum="uniqueId3">
+          <img src="images/8izngdgrT.png" alt="" />
+        </div>
+        <div class="card" item="coffee" idNum="uniqueId4">
+          <img src="images/8izngdgrT.png" alt="" />
+        </div>
+        <div class="card" item="whale" idNum="uniqueId5">
+          <img src="images/silhouette-of-a-whale-13.png" alt="" />
+        </div>
+        <div class="card" item="whale" idNum="uniqueId6">
+          <img src="images/silhouette-of-a-whale-13.png" alt="" />
+        </div>
+        <div class="card" item="circle" idNum="uniqueId7" >
+          <img src="images/circle-clipart-17.png" alt="" />
+        </div>
+        <div class="card" item="circle" idNum="uniqueId8" >
+          <img src="images/circle-clipart-17.png" alt="" />
+        </div>
+        <div class="card" item="lion" idNum="uniqueId9" >
+          <img src="images/lion-transparent-png-18.png" alt="" />
+        </div>
+        <div class="card" item="lion" idNum="uniqueId10" >
+          <img src="images/lion-transparent-png-18.png" alt="" />
+        </div>
+        <div class="card" item="elephant" idNum="uniqueId11">
+          <img src="images/elephant-clipart-transparent-background-1.png" alt="" />
+        </div>
+        <div class="card" item="elephant" idNum="uniqueId12">
+          <img src="images/elephant-clipart-transparent-background-1.png" alt="" />
+        </div>
       </div>
-      <div class="card" item="coffee" idNum="two">
-        <img src="images/8izngdgrT.png" alt="" />
+      <div class="grids hide">
+        <div>
+          <button class="grid-button" grid="2X2">
+            <p class="grid-text">
+              2X2 GRID
+            </p>
+          </button>
+        </div>
+        <div>
+          <button class="grid-button" grid="3X2">
+            <p class="grid-text">
+              3X2 GRID
+            </p>
+          </button>
+        </div>
+        <div>
+          <button class="grid-button" grid="4X2">
+            <p class="grid-text">
+              4X2 GRID
+            </p>
+          </button>
+        </div>
+        <div>
+          <button class="grid-button" grid="4X3">
+            <p class="grid-text">
+              4X3 GRID
+            </p>
+          </button>
+        </div>
       </div>
-      <div class="card" item="whale" idNum="three">
-        <img src="images/silhouette-of-a-whale-13.png" alt="" />
-      </div>
-      <div class="card" item="circle" idNum="four" >
-        <img src="images/circle-clipart-17.png" alt="" />
-      </div>
-      <div class="card" item="lion" idNum="five" >
-        <img src="images/lion-transparent-png-18.png" alt="" />
-      </div>
-      <div class="card" item="elephant" idNum="six">
-        <img src="images/elephant-clipart-transparent-background-1.png" alt="" />
-      </div>
-      <div class="card" item="lion" idNum="seven" >
-        <img src="images/lion-transparent-png-18.png" alt="" />
-      </div>
-      <div class="card" item="circle" idNum="eight" >
-        <img src="images/circle-clipart-17.png" alt="" />
-      </div>
-      <div class="card" item="coffee" idNum="nine">
-        <img src="images/8izngdgrT.png" alt="" />
-      </div>
-      <div class="card" item="whale" idNum="ten">
-        <img src="images/silhouette-of-a-whale-13.png" alt="" />
-      </div>
-      <div class="card" item="elephant" idNum="eleven">
-        <img src="images/elephant-clipart-transparent-background-1.png" alt="" />
-      </div>
-      <div class="card" item="hexagon" idNum="twelve">
-        <img src="images/Hexagon-PNG-Clipart.png" alt="" />
-      </div>
+    </div>
+    <div class="bottom">
     </div>
   </div>
   <script src="build/main.js"></script>

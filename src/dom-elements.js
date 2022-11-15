@@ -1,0 +1,17 @@
+module.exports = {
+  buttonText: document.querySelector('.btn-text'),
+  replayBtnTxt: document.querySelector('.replay-btn-txt'),
+  result: document.querySelector('.result'),
+  cardsDiv: document.querySelector('.cards'),
+  cards: document.querySelectorAll('.cards .card'),
+  gridsDiv: document.querySelector('.grids'),
+  grids: document.querySelectorAll('.grids .grid-button'),
+  guide: document.querySelector('.guide'),
+  stats: document.querySelector('.stats'),
+  restartBtn: document.querySelector('.restart'),
+  replayBtn: document.querySelector('.replay'),
+  show: document.getElementsByClassName('show'),
+  hide: document.getElementsByClassName('hide'),
+  winStreakCount: document.querySelector('.winning-streak'),
+  time: document.querySelector('.time'),
+};
