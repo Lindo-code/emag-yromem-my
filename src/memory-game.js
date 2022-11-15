@@ -9,8 +9,7 @@ const {
 } = require('../utils/functions');
 
 element.grids.forEach((grid) => {
-  let gridSize; let
-    columns;
+  let gridSize, columns; // if screen is x then y = 'auto auto auto'
   grid.addEventListener('click', () => {
     setTimeout(() => {
       columns = 'auto auto auto auto';
