@@ -1,76 +1,77 @@
-const obj = require("./object");
+const element = require('./dom-elements');
+const controller = require('./game-controllers');
+const {
+  createChosenGrid,
+  checkIfCorrect,
+  restartGame,
+  replayGame,
+  timeElapsed,
+} = require('../utils/functions');
 
-document.addEventListener("DOMContentLoaded", function() {
-  const cardsArr = Array.prototype.slice.call(obj.cardsDiv.getElementsByClassName('card'));
-  cardsArr.forEach((card) => {
-    obj.cardsDiv.removeChild(card);
-  });
-  shuffleCards(cardsArr);
-  cardsArr.forEach((card) => {
-    obj.cardsDiv.appendChild(card);
-  })
-});
-
-function shuffleCards(arrOfCards) {
-  for (let i = arrOfCards.length - 1; i > 0; i--) {
-    const int = Math.floor(Math.random() * (i + 1));
-    const tempCard = arrOfCards[i];
-    arrOfCards[i] = arrOfCards[int];
-    arrOfCards[int] = tempCard;
-  }
-  return arrOfCards;
-}
-
-obj.cards.forEach((card) => {
-  card.addEventListener("click", () => {
-    if(!obj.cardID.includes(card.getAttribute("idNum"))){
-      card.classList.add("clicked");
-      if (obj.counter === 0) {
-        obj.cardID.push(card.getAttribute("idNum"));
-        obj.firstSelection = card.getAttribute("item");
-        obj.counter++;
-      } else {
-        obj.cardsIdTemp.push(card.getAttribute("idNum"))
-        obj.secondSelection = card.getAttribute("item");
-        obj.counter = 0;
-        return checkIfCorrect();
-      };
-    };
-  });
-});
-
-function checkIfCorrect() {
-  const correctCards = document.querySelectorAll( ".card[item='" + obj.firstSelection + "']");
-  const incorrectCards = document.querySelectorAll(".card.clicked");
-  if (obj.firstSelection === obj.secondSelection) {
-    obj.wins++;
-    obj.result.style.color = "green"
-    obj.result.innerText = obj.wins === 6 ? "Congratulations!" : "Correct!";
-    obj.winStreak++;
-    obj.streak.innerText = `Winning Streak: ${obj.winStreak}`;
-    correctCards[0].classList.add("checked");
-    correctCards[0].classList.remove("clicked");
-    correctCards[1].classList.add("checked");
-    correctCards[1].classList.remove("clicked");
-    obj.cardID.push(obj.cardsIdTemp[0]);
-    obj.cardsIdTemp = [];
-  } else {
-    obj.cardID.pop();
-    obj.cardsIdTemp = [];
-    obj.result.style.color = "red"
-    obj.result.innerText = "Incorrect!";
-    obj.winStreak = 0;
-    obj.streak.innerText = `Winning Streak: ${obj.winStreak}`;
-    incorrectCards[0].classList.add("turn");
-    incorrectCards[1].classList.add("turn");
-
+element.grids.forEach((grid) => {
+  let gridSize; let
+    columns;
+  grid.addEventListener('click', () => {
     setTimeout(() => {
-      incorrectCards[0].classList.remove("turn");
-      incorrectCards[0].classList.remove("clicked");
-      incorrectCards[1].classList.remove("turn");
-      incorrectCards[1].classList.remove("clicked");
-    }, 800);
-  }
-}
+      columns = 'auto auto auto auto';
+      if (grid.getAttribute('grid') === '2X2') {
+        gridSize = 7;
+        columns = 'auto auto';
+      } else if (grid.getAttribute('grid') === '3X2') {
+        gridSize = 5;
+        columns = 'auto auto auto';
+      } else if (grid.getAttribute('grid') === '4X2') {
+        gridSize = 3;
+      }
+      createChosenGrid(gridSize, columns);
+      element.time.style.display = 'block';
+    }, 500);
+  });
+});
 
-module.exports = {checkIfCorrect, shuffleCards};
+element.cards.forEach((card) => {
+  element.cardsDiv.style.pointerEvents = 'initial';
+  card.addEventListener('click', () => {
+    if (controller.clicks === 0) {
+      timeElapsed();
+    }
+    if (!controller.cardID.includes(card.getAttribute('idNum'))) {
+      card.classList.add('rotate');
+      card.classList.add('clicked');
+      if (controller.counter === 0) {
+        controller.cardID.push(card.getAttribute('idNum'));
+        controller.firstSelection = card.getAttribute('item');
+        controller.counter++;
+        controller.clicks++;
+      } else {
+        element.cardsDiv.style.pointerEvents = 'none';
+        controller.cardsIdTemp.push(card.getAttribute('idNum'));
+        controller.secondSelection = card.getAttribute('item');
+        controller.counter = 0;
+        return checkIfCorrect();
+      }
+    }
+  });
+});
+
+element.restartBtn.addEventListener('click', () => {
+  element.restartBtn.style.transform = 'scale(.8)';
+  setTimeout(() => {
+    element.restartBtn.style.transform = 'scale(1)';
+  }, 300);
+  setTimeout(() => {
+    restartGame();
+  }, 700);
+});
+
+element.replayBtn.addEventListener('click', () => {
+  element.replayBtn.style.transform = 'scale(.8)';
+  setTimeout(() => {
+    element.replayBtn.style.transform = 'scale(1)';
+  }, 300);
+  setTimeout(() => {
+    replayGame();
+  }, 700);
+});
+
+module.exports = { checkIfCorrect, createChosenGrid, replayGame };

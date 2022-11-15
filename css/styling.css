@@ -4,11 +4,50 @@
   box-sizing: border-box;
 }
 
-.result {
+.winning-streak {
+  display: none;
+  color: white;
+  margin: .5em;
+}
+
+.guide{
   color: white;
 }
-.streak {
+
+.result {
+  color: gold;
+  text-align: center;
+  margin: 1em .5em .4em .5em;
+}
+
+.btn-text {
   color: white;
+  background-color: black;
+}
+
+.replay-btn-txt {
+  color: white;
+  background-color: black;
+}
+
+.stats {
+  display: block;
+  background-color: black;
+  border-style: solid;
+  border-color: goldenrod;
+  border-radius: 10px;
+  padding: 1em 2em 1em 2em;
+  text-align: center;
+}
+
+.replay-text {
+  display: block;
+  background-color: black;
+  border-style: solid;
+  border-color: goldenrod;
+  border-radius: 10px;
+  padding: 1em 2em 1em 2em;
+  text-align: center;
 }
 
 .container {
@@ -16,6 +55,40 @@
   place-items: center;
   min-height: 100vh;
   background-color: rgb(65, 62, 62);
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.restart {
+  background-color: rgb(65, 62, 62);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  grid-gap: 2em;
+  pointer-events: none;
+}
+
+.replay {
+  background-color: rgb(65, 62, 62);
+  border-radius: 12px;
+  display: none;/*none*/
+  grid-template-columns: auto;
+  place-items: center;
+  grid-gap: 2em;
+  pointer-events: none;
+}
+
+.middle {
+  padding: 1em;
+}
+
+.bottom {
+  padding: 4em;
 }
 
 .heading {
@@ -26,14 +99,44 @@
 }
 
 .cards {
+  display: none;
+  pointer-events: none;
+  grid-template-columns: auto;
+  grid-gap: 4em;
+}
+
+.grids {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2;
   grid-gap: 2em;
 }
 
+.grid-button {
+  height: 9vw;
+  width: 21vw;
+  background-color: red;
+  border-color: white;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.grid-text {
+  font-family: "Poppins", sans-serif;
+}
+
+.time {
+  display: none;
+  color: white;
+  margin: 1em .5em .4em .5em;
+}
+
 .card {
-  height: 110px;
-  width: 90px;
+  height: 120px;
+  width: 100px;
   background-color: red;
   border-style: solid;
   border-color: aliceblue;
@@ -57,6 +160,11 @@
 
 .card.clicked {
   background-color: orange;
+  transform: rotateY( 180deg )
+}
+
+.card.rotate {
+  transform: rotateY( 180deg );
 }
 
 .card.checked {
@@ -70,43 +178,18 @@
 
 .card.turn {
   background-color: #f15f5f;
-  animation: turn 0.5s;
+  transform: rotateY( 180deg );
 }
 
-@keyframes turn {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
+.grid-button:active {
+  transform: scale(0.8);
 }
 
+.restart:active {
+  transform: scale(1);
+}
+
+.replay:active {
+  transform: scale(1);
+}
 
